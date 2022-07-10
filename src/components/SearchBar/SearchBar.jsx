@@ -38,7 +38,7 @@ const SearchBar = () => {
                 </fieldset>            
             </div>
             <Display books={books} />
-        </div>
+        </div>        
     )
 }
 export default SearchBar;

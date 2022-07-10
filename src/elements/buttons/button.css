@@ -17,3 +17,25 @@
     background-color: #ccc;
     color: white;
 }
+
+/* toggle grid / list button */
+.toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.toggler {
+    border: none;
+    background-color: white;
+    height: 45px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.toggler:hover {
+    cursor: pointer;
+    background: rgb(25, 224, 138);
+}

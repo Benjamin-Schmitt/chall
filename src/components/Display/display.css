@@ -1,13 +1,56 @@
-.toggle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+/* results button */
+nav {
+    margin-bottom: 25px;
 }
 
-.toggler {
-    width: 100px;
-    height: 25px;
-    margin: 5px;
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+li {
+    color: black;
+    background: rgb(25, 224, 138);
+    display: block;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    font-weight: bold;
+}
+
+li a {
+    color: black;
+}
+
+li:hover {
+    background: rgb(25, 97, 91);
+    cursor: pointer;
+}
+
+ul li ul {
+    background: rgb(237, 234, 228);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 1.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
 }

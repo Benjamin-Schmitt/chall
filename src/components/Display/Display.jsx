@@ -6,6 +6,7 @@ import './display.css';
 
 const Display = (props) => {
     const [toggle, setToggle] = useState(false);
+    const [pages, setPages] = useState(10);
 
     return(
         <div className="toggle">
@@ -14,7 +15,20 @@ const Display = (props) => {
                 onClick={() => setToggle(!toggle)}> 
                 List / Grid 
             </button>
-            {toggle ? <List books={props.books}/> : <Grid books={props.books}/>}   
+
+            <nav role="navigation">
+                <ul>
+                    <li><a href="#">Results</a>
+                        <ul className="dropdown">
+                            <li className="pages" onClick={() => setPages(10)}> 10</li>
+                            <li className="pages" onClick={() => setPages(20)}> 20</li>
+                            <li className="pages" onClick={() => setPages(50)}> 50</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>            
+
+            {toggle ? <List books={props.books} pages={pages}/> : <Grid books={props.books} pages={pages} />}   
         </div>
     )
 }

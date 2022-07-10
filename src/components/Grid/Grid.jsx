@@ -1,15 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ReactPaginate from 'react-paginate';
 import Modal from '../Modal/Modal.jsx';
 import './grid.css';
+import './pagination.css';
 
-const Grid = ({ books }) => {    
-    const [pagination, setPagination] = useState(books);
+
+const Grid = (props) => {    
     const [openModal, setOpenModal] = useState(false);
     const [selectedBook, setSelectedBook] = useState(null);
-
+    const [currentItems, setCurrentItems] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
+    const itemsPerPage = props.pages;
+    
+    useEffect(() => {
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(props.books.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(props.books.length / itemsPerPage));
+    }, [itemOffset, itemsPerPage, props.books]);
+  
+    const handlePageClick = (event) => {
+      const newOffset = (event.selected * itemsPerPage) % props.books.length;
+      setItemOffset(newOffset);
+    };
+  
     return (
+      <> 
         <div className="grid">
-            {books.map(book => (
+            {currentItems.map(book => (
                 <div className="book" key={book.key}>
                     <div className="title">{book.title}</div>
                     <div>by {(book.author_name) && book.author_name[0]}</div>
@@ -23,52 +41,26 @@ const Grid = ({ books }) => {
                             </img>
                         </button>
                     </div>
+                    {openModal && <Modal id={ selectedBook } closeModal={ setOpenModal } />}
                 </div>
+                ))}
+            </div>
 
-            ))
-            }
-            {openModal && <Modal id={ selectedBook } closeModal={ setOpenModal } />}
-        </div>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={1}
+            pageCount={pageCount}
+            previousLabel="<"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            pageLinkClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+            activeClassName="active"
+          />
+      </>
     );
 }
 export default Grid;
-
-
-
-
-/* 
-useEffect(() => {
-    setPagination((prevState) => ({
-      ...prevState,
-      pageCount: prevState.data.length / prevState.numberPerPage,
-      currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
-    }))
-  }, [pagination.numberPerPage, pagination.offset])
-  const handlePageClick = event => {
-    const selected = event.selected;
-    const offset = selected * pagination.numberPerPage
-    setPagination({ ...pagination, offset })
-  }
-  return (
-    <div>
-      {pagination.currentData && pagination.currentData.map(((item, index) => (
-        <div key={item.id} className="post">
-          <h3>{`${item.title} - ${item.id}`}</h3>
-          <p>{item.body}</p>
-        </div>
-      )))
-      }
-      <ReactPaginate
-        previousLabel={'previous'}
-        nextLabel={'next'}
-        breakLabel={'...'}
-        pageCount={pagination.pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={handlePageClick}
-        containerClassName={'pagination'}
-        activeClassName={'active'}
-      />
-    </div>
-  );
-} */
