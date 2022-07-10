@@ -1,0 +1,23 @@
+.outer {
+    background-color: #e6e6e6;
+    margin: auto;
+}
+
+
+.searchbar {
+    margin: auto;
+    width: 100%;
+    max-width: 695px;
+    border: none;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+legend {
+    font-size: 50px;
+}

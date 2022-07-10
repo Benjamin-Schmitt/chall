@@ -1,0 +1,11 @@
+input, textarea {
+    width:100%;
+    max-width: 680px;
+    height: 35px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 25px;
+    background-color: #fff;
+}
+

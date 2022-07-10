@@ -1,0 +1,39 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    background: rgba(1, 7, 1, 0.767);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.exit {
+    position: fixed;
+    top: 0;
+    left: 95%;
+    text-align: right;
+    font-size: 50px;
+    color: white;
+}
+
+.exit:hover {
+    cursor: pointer;
+}
