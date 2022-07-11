@@ -1,8 +1,18 @@
 .grid {
   display: grid;
+  /* works on chrome */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  
+  
+  /* grid-template-columns: repeat(auto-fit, 300px); */
+  
+  /* works on firefox, but not well */
+  /* grid-template-columns: repeat(4, 1fr); */
+  
+  
   grid-gap: 20px;
   max-width: 95%;
+  height: 100%;
 }
 
 .book {
