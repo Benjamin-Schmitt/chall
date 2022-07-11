@@ -22,7 +22,8 @@ Then open localhost:3000 in your browser.
 
 # Decisions
 1. Functional components were used for better code readability and easily structured component seperation.
-2. A component in this project needs to have its own function, compared to elements who only increase reusability by abstracting them plus increase readability but don't necessarily have their own function.  
+2. A component in this project needs to have its own function, compared to:
+3. Elements who increase reusability by abstracting them and increase readability to become building blocks  
 
 
 # If this was a bigger project
@@ -30,5 +31,4 @@ Had this been a production level project, I would have
 1. done unit tests,
 2. changed architecture to prevent props drilling,
 3. used Firebase to make a login feature so books can be saved for later reading,
-4. maybe used Gatsby do increase speed
-5. Added a footer with GDPR compliant Data Protection Info
+4. Added a footer with GDPR compliant Data Protection Info

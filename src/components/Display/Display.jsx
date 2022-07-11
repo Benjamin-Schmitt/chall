@@ -11,8 +11,8 @@ const Display = (props) => {
 
     return(
         <div className="toggle">
-            <Toggle setToggle={setToggle} toggle={toggle} />
-            <Results setPages={setPages}/>                      
+                <Toggle setToggle={setToggle} toggle={toggle} />
+                <Results setPages={setPages}/>    
             {toggle ? <List books={props.books} pages={pages}/> : <Grid books={props.books} pages={pages} />}   
         </div>
     )
