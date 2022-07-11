@@ -1,3 +1,8 @@
+.bar {
+    display: flex;
+}
+
+/* SEARCH BUTTON */
 .search-button {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -18,7 +23,7 @@
     color: white;
 }
 
-/* toggle grid / list button */
+/* TOGGLE LIST / GRID BUTTON */
 .toggle {
     display: flex;
     flex-direction: column;
@@ -29,13 +34,72 @@
 
 .toggler {
     border: none;
+    margin-right: 5px;
     background-color: white;
-    height: 45px;
+    height: 53.5px;
     margin-bottom: 2px;
     font-weight: bold;
 }
 
 .toggler:hover {
     cursor: pointer;
-    background: rgb(25, 224, 138);
+    background: rgb(106, 156, 231);
+}
+
+
+/* RESULTS BUTTON */
+nav {
+    margin-bottom: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    font-weight: bold;
+}
+
+li {
+    color: black;
+    background: white;
+    display: block;
+    float: left;
+    padding: 1rem;
+    position: relative;
+}
+
+li a {
+    color: black;
+}
+
+li:hover {
+    background: rgb(106, 156, 231);
+    cursor: pointer;
+}
+
+ul li ul {
+    background: rgb(237, 234, 228);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 1.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
 }

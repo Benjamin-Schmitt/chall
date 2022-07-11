@@ -31,4 +31,5 @@ Had this been a production level project, I would have
 1. done unit tests,
 2. changed architecture to prevent props drilling,
 3. used Firebase to make a login feature so books can be saved for later reading,
-4. Added a footer with GDPR compliant Data Protection Info
+4. added a footer with GDPR compliant Data Protection Info,
+5. made better looking elements (buttons, etc.)
