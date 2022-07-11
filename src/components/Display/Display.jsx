@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Grid from '../Grid/Grid.jsx';
 import List from '../List/List.jsx';
+import Results from '../../elements/buttons/Results.jsx';
+import Toggle from '../../elements/buttons/Toggle.jsx';
 import './display.css';
-
 
 const Display = (props) => {
     const [toggle, setToggle] = useState(false);
@@ -10,24 +11,8 @@ const Display = (props) => {
 
     return(
         <div className="toggle">
-            <button 
-                className="toggler" 
-                onClick={() => setToggle(!toggle)}> 
-                List / Grid 
-            </button>
-
-            <nav role="navigation">
-                <ul>
-                    <li><a href="#">Results</a>
-                        <ul className="dropdown">
-                            <li className="pages" onClick={() => setPages(10)}> 10</li>
-                            <li className="pages" onClick={() => setPages(20)}> 20</li>
-                            <li className="pages" onClick={() => setPages(50)}> 50</li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>            
-
+            <Toggle setToggle={setToggle} toggle={toggle} />
+            <Results setPages={setPages}/>                      
             {toggle ? <List books={props.books} pages={pages}/> : <Grid books={props.books} pages={pages} />}   
         </div>
     )

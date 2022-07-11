@@ -1,14 +1,10 @@
 .grid {
   display: grid;
   /* works on chrome */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  
-  
-  /* grid-template-columns: repeat(auto-fit, 300px); */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   
   /* works on firefox, but not well */
   /* grid-template-columns: repeat(4, 1fr); */
-  
   
   grid-gap: 20px;
   max-width: 95%;
@@ -22,9 +18,10 @@
   justify-content: center;
   border:2px solid #e6e6e6;
   width: 300px;
-  height: 400px;
+  height: 450px;
   background-color: #e6e6e6;
   background-color: rgba(248, 247, 247, 0.853);
+  overflow: hidden;
 }
 
 .title {

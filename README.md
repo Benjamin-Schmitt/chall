@@ -14,9 +14,10 @@ Start this project by typing: "npm start",
 Then open localhost:3000 in your browser.
 
 
-# Libraries / Frameworks used
+# Libraries / Frameworks / Tools used
 - React
 - ReactPaginate
+- written in Node v.16.13.1 with some ES6 syntax
 
 
 # Decisions
