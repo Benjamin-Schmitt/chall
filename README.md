@@ -1,4 +1,4 @@
-# Gofore - books app challenge 
+# books app challenge 
 
 # What is this?
 This app lets users
