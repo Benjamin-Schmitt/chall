@@ -7,18 +7,23 @@
     list-style: none;
     border-radius: 0;
     border: 1px solid #eaeaea;
-    background-color: #7d22223b;
+    background-color: white;
     box-shadow: 0 0 0 1px rgba(144, 39, 39, 0.1);
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-/* big numbers with margin */
 .page-num {
-    margin: .25rem;
+    margin: .20rem;
     font-size: 1rem;
     font-weight: bold;
-    color: #333;
+    /* color: #333; */
+    display: block;
+    padding: 20px;
+}
+
+.pagination > li {
+    padding: 0 !important; 
 }
 
 .page-num:hover {
@@ -30,4 +35,13 @@
     color: #000;
     border: 1px solid #eaeaea;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.break > a {
+    margin: .20rem;
+    font-size: 1rem;
+    font-weight: bold;
+    /* color: #333; */
+    display: block;
+    padding: 20px;
 }

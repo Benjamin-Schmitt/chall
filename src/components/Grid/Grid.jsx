@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import Modal from '../Modal/Modal.jsx';
-import './grid.css';
 import './pagination.css';
-
+import './grid.css';
 
 const Grid = (props) => {    
     const [openModal, setOpenModal] = useState(false);
@@ -13,6 +12,9 @@ const Grid = (props) => {
     const [itemOffset, setItemOffset] = useState(0);
     const itemsPerPage = props.pages;
     
+    // component renders initially when it first loads and renders everything to the dom
+    // then it renders when the state (in one or all of the above) changes
+    // UseEffect runs code on every render. In this case it runs two arguments, first argument is the function to run, second argument is an array of variables to watch for changes
     useEffect(() => {
       const endOffset = itemOffset + itemsPerPage;
       setCurrentItems(props.books.slice(itemOffset, endOffset));
@@ -22,6 +24,7 @@ const Grid = (props) => {
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % props.books.length;
       setItemOffset(newOffset);
+      console.log(itemOffset, event.selected)
     };
   
     return (
@@ -47,13 +50,14 @@ const Grid = (props) => {
             </div>
 
           <ReactPaginate
+            onPageChange={handlePageClick}          
+            pageCount={pageCount}
+            pageRangeDisplayed={1}
+            marginPagesDisplayed={1}
+            renderOnZeroPageCount={null}
             breakLabel="..."
             nextLabel=">"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={1}
-            pageCount={pageCount}
-            previousLabel="<"
-            renderOnZeroPageCount={null}
+            previousLabel="<"            
             containerClassName="pagination"
             pageLinkClassName="page-num"
             previousLinkClassName="page-num"
